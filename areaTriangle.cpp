@@ -26,7 +26,7 @@ int main() {
     std::cout << "What is your base (cm) ? ";
     std::cin >> user_base;
     std::cout << "What is your height (cm) ? ";
-    std::cin >> user_base;
+    std::cin >> user_height;
 
     // Convert the two inputs in nested try catch to float
      try {
@@ -34,24 +34,25 @@ int main() {
 
             // Checks if base is negative
             if (base_float < 0) {
-                std::cout << base_float <<"is not a positive float";
-            }
+                std::cout << base_float <<" is not a positive float";
 
-        try {
-            height_float = std::stof(user_height);
+            // If not it continues checking if the height is a float
+            } else {
+            try {
+                height_float = std::stof(user_height);
 
-            // Checks if height is negative
+                // Checks if height is negative
                 if (height_float < 0) {
-                    std::cout << height_float << "is not a positive float";
+                    std::cout << height_float << " is not a positive float";
                 } else {
                 // Calls function
                 calcArea(base_float, height_float);}
 
             // What happens if the inputs are strings
             } catch (std::invalid_argument) {
-                std::cout << height_float << "is not a float!\n";
-            }
+                std::cout << user_height << " is not a float!\n";
+            }}
         } catch (std::invalid_argument) {
-            std::cout << height_float << "is not a float!\n";
+            std::cout << user_base << " is not a float!\n";
         }
 }
